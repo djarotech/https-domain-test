@@ -3,7 +3,7 @@ Referring to: https://itnext.io/automated-tls-with-cert-manager-and-letsencrypt-
 # building docker image:
 $ `cd images`
 
-$ `docker build -t example-nodejs:latest ./`
+$ `docker build -t example-nodejs:1.0 ./`
 
 $ `docker tag example-nodejs:1.0 gcr.io/kubernetes-dev-211403/example-nodejs:1.0`
 
