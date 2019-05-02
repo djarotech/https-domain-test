@@ -55,10 +55,10 @@ metadata:
     # ingress.kubernetes.io/rewrite-target: /
     certmanager.k8s.io/cluster-issuer: letsencrypt-staging
 spec:
-   tls:
-   - hosts:
-     - casual-encounters.io
-     secretName: cert-example-crt
+  tls:
+  - hosts:
+    - www.casual-encounters.io
+    secretName: cert-example-crt
   rules:
     - http:
         paths:
