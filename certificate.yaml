@@ -2,9 +2,9 @@
 apiVersion: certmanager.k8s.io/v1alpha1
 kind: Certificate
 metadata:
-  name: example-nodejs-crt
+  name: cert-example-crt
 spec:
-  secretName: example-nodejs-crt
+  secretName: cert-example-crt
   dnsNames:
   - casual-encounters.io
   acme:

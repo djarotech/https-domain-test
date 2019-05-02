@@ -2,21 +2,21 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: example-nodejs
+  name: cert-example
 spec:
   revisionHistoryLimit: 5
   replicas: 1
   selector:
     matchLabels:
-      app: example-nodejs
+      app: cert-example
   template:
     metadata:
       labels:
-        app: example-nodejs
+        app: cert-example
     spec:
       containers:
-      - name: example-nodejs
-        image: gcr.io/kubernetes-dev-211403/example-nodejs:1.0
+      - name: cert-example
+        image: gcr.io/kubernetes-dev-211403/cert-example:1.0
         imagePullPolicy: Always
         livenessProbe:
           httpGet:
@@ -36,14 +36,14 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: example-nodejs
+  name: cert-example
 spec:
   type: NodePort
   ports:
   - port: 30080
     nodePort: 30080
   selector:
-    app: example-nodejs
+    app: cert-example
 
 ---
 apiVersion: extensions/v1beta1
@@ -58,11 +58,11 @@ spec:
   # tls:
   # - hosts:
   #   - casual-encounters.io
-  #   secretName: example-nodejs-crt
+  #   secretName: cert-example-crt
   rules:
     - http:
         paths:
         - path: /
           backend:
-            serviceName: example-nodejs
+            serviceName: cert-example
             servicePort: 30080
